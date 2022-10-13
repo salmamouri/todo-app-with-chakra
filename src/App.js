@@ -1,9 +1,10 @@
 import { Heading, IconButton, VStack } from "@chakra-ui/react";
 import { FaSun, FaMoon } from "react-icons/fa";
+import TodoList from "./components/TodoList/TodoList";
 
 function App() {
   return (
-    <VStack p={4}>
+    <VStack>
       <IconButton
         icon={<FaSun />}
         isRound="true"
@@ -11,7 +12,7 @@ function App() {
         alignSelf="flex-end"
       />
       <Heading
-        mb={8}
+        p="6"
         fontWeight="extrabold"
         size="2xl"
         bgGradient="linear(to-r,pink.800,pink.300,blue.500)"
@@ -19,6 +20,7 @@ function App() {
       >
         Todo Application
       </Heading>
+      <TodoList></TodoList>
     </VStack>
   );
 }
