@@ -1,4 +1,5 @@
 import {
+  Badge,
   HStack,
   IconButton,
   Spacer,
@@ -9,17 +10,14 @@ import {
 import React from "react";
 import { FaTrash } from "react-icons/fa";
 
-const TodoList = () => {
-  const todos = [
-    {
-      id: 1,
-      body: "get ready",
-    },
-    {
-      id: 2,
-      body: "get money",
-    },
-  ];
+const TodoList = ({ todos, deleteTodo }) => {
+  if (!todos.length) {
+    return (
+      <Badge colorScheme="green" p={4} m={4} borderRadius="lg">
+        No todos...Yay Yay
+      </Badge>
+    );
+  }
   return (
     <VStack
       p={4}
@@ -35,7 +33,11 @@ const TodoList = () => {
         <HStack>
           <Text>{todo.body}</Text>
           <Spacer />
-          <IconButton icon={<FaTrash />} isRound="true" />
+          <IconButton
+            icon={<FaTrash />}
+            isRound="true"
+            onClick={() => deleteTodo(todo.id)}
+          />
         </HStack>
       ))}
     </VStack>
